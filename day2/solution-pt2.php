@@ -85,8 +85,7 @@ foreach ($lines as $report) {
     if (trim($report) == '') continue;
     $levels = preg_split(LIST_SPLIT_REGEX, $report);
     $deltas = calculate_deltas($levels);
-    $safe = validate_deltas($deltas, $levels);
-    if ($safe) ++$safe_reports;
+    if (validate_deltas($deltas, $levels)) ++$safe_reports;
 }
 
 echo $safe_reports;
